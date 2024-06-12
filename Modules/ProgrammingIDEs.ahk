@@ -5,7 +5,7 @@
 Currently supports Visual Studio and VisualStudio Code
 */
 
-InitProgrammingIDEsShortcuts()
+InitProgrammingIDEsHotkeys()
 {
     GroupAdd("IDEGroup", "ahk_exe devenv\.exe") ; Visual Studio
     GroupAdd("IDEGroup", "ahk_exe Code\.exe") ; VS Code

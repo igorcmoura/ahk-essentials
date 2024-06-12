@@ -9,3 +9,13 @@ QuoteSingle(text)
 {
     return "'" text "'"
 }
+
+PathWithForwardSlashes(path)
+{
+    return StrReplace(path, "\", "/")
+}
+
+PathWithBackSlashes(path)
+{
+    return StrReplace(path, "/", "\")
+}

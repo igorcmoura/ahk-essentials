@@ -1,6 +1,10 @@
 ﻿#Requires AutoHotkey v2.0
 #SingleInstance Force
 
+/*
+Already used keys on Windows: https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec
+*/
+
 ;; Auto-execute:
 
     SendMode("Input") ; Ensures that the Send command uses the most reliable mode
@@ -8,12 +12,14 @@
 
     InitConfigs()
 
+    InitKomorebiHotkeys()
     InitWindowsExplorerHotkeys()
-    InitProgrammingIDEsShortcuts()
+    InitProgrammingIDEsHotkeys()
 
 return
 
 #Include Modules\Configs.ahk
+#Include Modules\Komorebi.ahk
 #Include Modules\ProgrammingIDEs.ahk
 #Include Modules\Symbols.ahk
 #Include Modules\Utils\MouseUtils.ahk
