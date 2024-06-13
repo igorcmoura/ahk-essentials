@@ -10,6 +10,15 @@ Already used keys on Windows: https://support.microsoft.com/en-us/windows/keyboa
     SendMode("Input") ; Ensures that the Send command uses the most reliable mode
     SetTitleMatchMode("RegEx")
 
+    ; Useful variables
+    global A_LocalAppData := EnvGet("LocalAppData")
+    global A_LocalLowAppData := A_LocalAppData "Low"
+    global A_ScriptDataDir := A_LocalAppData "\Essentials"
+    if !DirExist(A_ScriptDataDir) {
+        DirCreate(A_ScriptDataDir)
+    }
+
+    #Include Modules\Configs\EssentialsConfigsClass.ahk
     InitConfigs()
 
     InitKomorebiHotkeys()
@@ -18,13 +27,15 @@ Already used keys on Windows: https://support.microsoft.com/en-us/windows/keyboa
 
 return
 
-#Include Modules\Configs.ahk
+#Include Modules\Configs\Configs.ahk
 #Include Modules\Komorebi.ahk
 #Include Modules\ProgrammingIDEs.ahk
 #Include Modules\Symbols.ahk
+#Include Modules\Utils\JsonUtils.ahk
 #Include Modules\Utils\MouseUtils.ahk
 #Include Modules\Utils\StringUtils.ahk
 #Include Modules\WindowsExplorer.ahk
+#Include ThirdParty\github.com\TheArkive\JXON_ahk2\_JXON.ahk
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; AutoHotkey
@@ -36,11 +47,11 @@ return
 ; Open script's workspace
 #F6::Run(Quote(Configs.VSCodePath) ' ' Quote(A_ScriptDir))
 
-; Open window inspector
-#F7::Run(Quote(Configs.AHKWindowSpyPath))
+; Open script's data folder
+#F7::Run(Quote(A_ScriptDataDir))
 
-; Open AutoHotkey window
-#F8::WinShow("ahk_class AutoHotkey")
+; Open window inspector
+#F8::Run(Quote(Configs.AHKWindowSpyPath))
 
 ; List hotkeys
 #F9::ListHotkeys

@@ -1,3 +1,3 @@
 # AHK Essentials
 
-My essential script for [AutoHotkey](https://www.autohotkey.com/).
+My essentials script for [AutoHotkey](https://www.autohotkey.com/).
