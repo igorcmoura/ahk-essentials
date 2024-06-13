@@ -12,9 +12,9 @@ GenerateKomorebiConfigs()
     templateFile.Close()
 
     configContent := StrReplace(templateContent, "{KOMOREBI_CONFIG_HOME}", PathWithForwardSlashes(A_KomorebiDir))
-    contentFile := FileOpen(A_KomorebiDir "\komorebi.json", "w")
-    contentFile.Write(configContent)
-    contentFile.Close()
+    configFile := FileOpen(A_KomorebiDir "\komorebi.json", "w")
+    configFile.Write(configContent)
+    configFile.Close()
 }
 
 #HotIf WinActive(".*komorebi-template\.json")

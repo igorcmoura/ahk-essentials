@@ -1,8 +1,12 @@
 #Requires AutoHotkey v2.0
 
-configsPath := A_ScriptDataDir "\configs.json"
+_Configs_Init()
+{
+    configsPath := A_ScriptDataDir "\configs.json"
 
-global Configs := EssentialsConfigs.LoadFromFile(configsPath)
+    global Configs := EssentialsConfigs.LoadFromFile(configsPath)
+}
+_Configs_Init()
 
 
 class EssentialsConfigs
