@@ -1,5 +1,10 @@
 #Requires AutoHotkey v2.0
 
+configsPath := A_ScriptDataDir "\configs.json"
+
+global Configs := EssentialsConfigs.LoadFromFile(configsPath)
+
+
 class EssentialsConfigs
 {
     ;; If true, the script will hibernate the computer instead of suspending it

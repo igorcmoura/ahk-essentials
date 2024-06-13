@@ -5,13 +5,6 @@
 Already used keys: https://support.microsoft.com/en-us/kb/126449
 */
 
-InitWindowsExplorerHotkeys()
-{
-    GroupAdd("ExplorerGroup", "ahk_class WorkerW") ; Desktop
-    GroupAdd("ExplorerGroup", "ahk_class CabinetWClass") ; Windows Explorer (compatibility)
-    GroupAdd("ExplorerGroup", "ahk_class ExploreWClass") ; Windows Explorer
-}
-
 #HotIf WinActive("ahk_group ExplorerGroup")
     ; Open command prompt here
     ^p::

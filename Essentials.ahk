@@ -18,24 +18,23 @@ Already used keys on Windows: https://support.microsoft.com/en-us/windows/keyboa
         DirCreate(A_ScriptDataDir)
     }
 
-    #Include Modules\Configs\EssentialsConfigsClass.ahk
-    InitConfigs()
-
-    InitKomorebiHotkeys()
-    InitWindowsExplorerHotkeys()
-    InitProgrammingIDEsHotkeys()
+    #Include Modules\Configs_Init.ahk
+    #Include Modules\Komorebi_Init.ahk
+    #Include Modules\WindowsExplorer_Init.ahk
+    #Include Modules\ProgrammingIDEs_Init.ahk
 
 return
 
-#Include Modules\Configs\Configs.ahk
-#Include Modules\Komorebi.ahk
-#Include Modules\ProgrammingIDEs.ahk
-#Include Modules\Symbols.ahk
+#Include ThirdParty\github.com\TheArkive\JXON_ahk2\_JXON.ahk
+
 #Include Modules\Utils\JsonUtils.ahk
 #Include Modules\Utils\MouseUtils.ahk
 #Include Modules\Utils\StringUtils.ahk
+
+#Include Modules\Komorebi.ahk
+#Include Modules\ProgrammingIDEs.ahk
+#Include Modules\Symbols.ahk
 #Include Modules\WindowsExplorer.ahk
-#Include ThirdParty\github.com\TheArkive\JXON_ahk2\_JXON.ahk
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; AutoHotkey
