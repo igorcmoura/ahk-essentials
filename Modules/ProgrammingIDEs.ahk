@@ -5,7 +5,7 @@
 Currently supports Visual Studio and VisualStudio Code
 */
 
-#HotIf WinActive("ahk_class IDEGroup")
+#HotIf WinActive("ahk_group IDEGroup")
     ; Go backwards using mouse's back button
     VK05::
     {
