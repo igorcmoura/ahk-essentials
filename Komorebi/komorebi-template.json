@@ -9,6 +9,7 @@
   "border": false,
   "border_width": 0,
   "border_offset": -1,
+  "border_style": "Square",
   "border_colours": {
     "single": "#003049",
     "stack": "#669bbc",
