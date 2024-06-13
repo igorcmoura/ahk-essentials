@@ -25,4 +25,7 @@ Currently supports Visual Studio and VisualStudio Code
             Send("{VK06}")
         }
     }
+
+    ; Check TextFields.ahk for aditional shortcuts
+
 #HotIf
