@@ -18,7 +18,10 @@ Already used keys on Windows: https://support.microsoft.com/en-us/windows/keyboa
         DirCreate(A_ScriptDataDir)
     }
 
+    #Include Modules\Utils\JsonUtils_Init.ahk
+
     #Include Modules\Configs_Init.ahk
+
     #Include Modules\Komorebi_Init.ahk
     #Include Modules\WindowsExplorer_Init.ahk
     #Include Modules\ProgrammingIDEs_Init.ahk

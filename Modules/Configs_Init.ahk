@@ -9,21 +9,24 @@ _Configs_Init()
 _Configs_Init()
 
 
-class EssentialsConfigs
+class EssentialsConfigs extends JsonObject
 {
-    ;; If true, the script will hibernate the computer instead of suspending it
-    HibernateInsteadOfSuspend := false
+    __New()
+    {
+        ;; If true, the script will hibernate the computer instead of suspending it
+        this.HibernateInsteadOfSuspend := false
 
-    ;; Programs paths
-    AHKWindowSpyPath := "Path to WindowSpy, usually C:\Program Files\AutoHotkey\WindowSpy.ahk"
-    VSCodePath := "Path to VSCode, usually C:\Users\<USER>\AppData\Local\Programs\Microsoft VS Code\Code.exe"
+        ;; Programs paths
+        this.AHKWindowSpyPath := "Path to WindowSpy, usually C:\Program Files\AutoHotkey\WindowSpy.ahk"
+        this.VSCodePath := "Path to VSCode, usually C:\Users\<USER>\AppData\Local\Programs\Microsoft VS Code\Code.exe"
+    }
 
     static LoadFromFile(ConfigsPath)
     {
         try configsJson := JsonLoadFile(ConfigsPath)
         catch OSError as e {
             ; Populate configs with default values
-            configs := EssentialsConfigs()
+            local configs := EssentialsConfigs()
 
             defaultAHKWindowSpyPath := A_ProgramFiles "\AutoHotkey\WindowSpy.ahk"
             if (FileExist(defaultAHKWindowSpyPath))
@@ -46,19 +49,12 @@ class EssentialsConfigs
             return configs
         }
 
-        configs := EssentialsConfigs()
-        configs.HibernateInsteadOfSuspend := configsJson["hibernateInsteadOfSuspend"]
-        configs.AHKWindowSpyPath := configsJson["ahkWindowSpyPath"]
-        configs.VSCodePath := configsJson["vsCodePath"]
+        local configs := EssentialsConfigs.FromMap(configsJson)
         return configs
     }
 
     SaveToFile(ConfigsPath)
     {
-        configsJson := Map()
-        configsJson["hibernateInsteadOfSuspend"] := this.HibernateInsteadOfSuspend
-        configsJson["ahkWindowSpyPath"] := this.AHKWindowSpyPath
-        configsJson["vsCodePath"] := this.VSCodePath
-        JsonDumpFile(configsJson, ConfigsPath, 4)
+        JsonDumpFile(this.AsMap(), ConfigsPath, 4)
     }
 }
