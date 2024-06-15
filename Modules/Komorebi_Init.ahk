@@ -1,6 +1,6 @@
 #Requires AutoHotkey v2.0
 
-_Komorebit_Init()
+_Komorebi_Init()
 {
     global komorebiAvailable := false
     global komorebiActive := ProcessExist("komorebi.exe")
@@ -23,4 +23,4 @@ _Komorebit_Init()
     EnvSet("KOMOREBI_CONFIG_HOME", A_KomorebiDir)
     GenerateKomorebiConfigs()
 }
-_Komorebit_Init()
+_Komorebi_Init()
