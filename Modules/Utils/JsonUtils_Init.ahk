@@ -2,21 +2,23 @@
 
 class JsonObject
 {
-    _InitializeData(InitialValue := Map())
+    _InitializeData(InitialValue := Map()) => this.DefineProp("_data", { Value: InitialValue })
+
+    _EnsureInitialized()
     {
         if (not this.HasOwnProp("_data"))
-            this.DefineProp("_data", { Value: InitialValue })
+            this._InitializeData()
     }
 
     __Get(Name, Params?)
     {
-        this._InitializeData()
+        this._EnsureInitialized()
         return this._data[Name]
     }
 
     __Set(Name, Params?, Value?)
     {
-        this._InitializeData()
+        this._EnsureInitialized()
         if (IsSet(Value)) {
             this._data[Name] := Value
         } else if (this._data.Has(Name)) {
@@ -36,7 +38,7 @@ class JsonObject
 
     AsMap()
     {
-        this._InitializeData()
+        this._EnsureInitialized()
         return this._data
     }
 
