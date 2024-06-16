@@ -42,11 +42,8 @@ Already used keys: https://support.microsoft.com/en-us/kb/126449
 
 IsRenaming()
 {
-    hwndEdit := false
-    try hwndEdit := ControlGetHwnd("Edit1", "A")
-    if (hwndEdit)
-        return true
-    return false
+    focus := ControlGetFocus("A")
+    return WinGetClass(focus) = "Edit"
 }
 
 RefreshExplorerWindows()
