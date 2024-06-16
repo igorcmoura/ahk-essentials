@@ -87,6 +87,9 @@ GenerateKomorebiConfigs()
     #+d::Komorebic("flip-layout vertical")
 
     ; Workspaces
+    #^Left::Komorebic("cycle-workspace previous")
+    #^Right::Komorebic("cycle-workspace next")
+
     #1::Komorebic("focus-workspace 0")
     #2::Komorebic("focus-workspace 1")
     #3::Komorebic("focus-workspace 2")
