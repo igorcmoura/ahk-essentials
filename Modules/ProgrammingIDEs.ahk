@@ -5,6 +5,14 @@
 Currently supports Visual Studio and VisualStudio Code
 */
 
+_ProgrammingIDEs_Init()
+{
+    GroupAdd("IDEGroup", "ahk_exe Code\.exe") ; VS Code
+    GroupAdd("IDEGroup", "ahk_exe devenv\.exe") ; Visual Studio
+}
+_ProgrammingIDEs_Init()
+
+
 #HotIf WinActive("ahk_group IDEGroup")
     ; Go backwards using mouse's back button
     VK05::
