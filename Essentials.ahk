@@ -22,10 +22,11 @@ Already used keys on Windows: https://support.microsoft.com/en-us/windows/keyboa
 
     #Include Modules\Configs_Init.ahk
 
+    #Include Modules\Browsers_Init.ahk
     #Include Modules\Komorebi_Init.ahk
-    #Include Modules\WindowsExplorer_Init.ahk
     #Include Modules\ProgrammingIDEs_Init.ahk
     #Include Modules\TextFields_Init.ahk
+    #Include Modules\WindowsExplorer_Init.ahk
 
 return
 
@@ -35,6 +36,7 @@ return
 #Include Modules\Utils\MouseUtils.ahk
 #Include Modules\Utils\StringUtils.ahk
 
+#Include Modules\Browsers.ahk
 #Include Modules\Komorebi.ahk
 #Include Modules\ProgrammingIDEs.ahk
 #Include Modules\Symbols.ahk
