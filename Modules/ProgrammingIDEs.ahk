@@ -13,26 +13,16 @@ _ProgrammingIDEs_Init()
 _ProgrammingIDEs_Init()
 
 
-#HotIf WinActive("ahk_group IDEGroup")
+#HotIf WinActive("ahk_exe devenv\.exe") ; Visual Studio
+
     ; Go backwards using mouse's back button
-    VK05::
-    {
-        if (WinActive("ahk_exe devenv\.exe")) { ; Visual Studio
-            Send("^-")
-        } else {
-            Send("{VK05}")
-        }
-    }
+    VK05::Send("^-")
 
     ; Go forwards using mouse's forward button
-    VK06::
-    {
-        if (WinActive("ahk_exe devenv\.exe")) { ; Visual Studio
-            Send("^+-")
-        } else {
-            Send("{VK06}")
-        }
-    }
+    VK06::Send("^+-")
+
+    ; Format on save
+    ^s::Send("^k^d^s")
 
     ; Check TextFields.ahk for aditional shortcuts
 
