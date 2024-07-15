@@ -24,6 +24,15 @@ _WindowsExplorer_Init()
         Run("cmd /K cd /d " Quote(currentPath))
     }
 
+    ; Open PowerShell here
+    ^+p::
+    {
+        currentPath := GetCurrentPath()
+        if (not FileExist(currentPath))
+            currentPath := "C:\"
+        Run("powershell -NoExit -Command " Quote("Set-Location " QuoteSingle(currentPath)))
+    }
+
     ; New blank file
     ~^+f::
     {
